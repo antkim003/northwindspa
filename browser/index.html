@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Northwind SPA</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/public/style.css" rel="stylesheet" />
+    <script src="/node_modules/angular/angular.js"></script>
+  </head>
+
+  <body>
+
+    <div class="container form-stuff bg-info">
+      <h1>Northwind SPA</h1>
+      <form action="/api/posts" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" id="name" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="priority">Priority</label>
+          <input type="priority" class="form-control" id="priority" placeholder="priority">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+
+    
+    <div class="container">
+      <h2>List for Northwind</h2>
+      <div class="row">
+        <div class="col-lg-12 entry">
+          <div class="pull-left">
+            hello
+          </div>
+          <div class="pull-right">
+            <button class="glyphicon glyphicon-arrow-up"></button>
+            <button class="glyphicon glyphicon-arrow-down"></button>
+            priority <span>1</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 entry">
+          <div class="pull-left">
+            hello
+          </div>
+          <div class="pull-right">
+            <button class="glyphicon glyphicon-arrow-up"></button>
+            <button class="glyphicon glyphicon-arrow-down"></button>
+            priority <span>2</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 entry">
+          <div class="pull-left">
+            hello
+          </div>
+          <div class="pull-right">
+            <button class="glyphicon glyphicon-arrow-up"></button>
+            <button class="glyphicon glyphicon-arrow-down"></button>
+            priority <span>3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -4,8 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "CONN=mongodb://localhost/northwindspa nodemon ./server/app.js",
+    "test": "CONN=mongodb://localhost/northwindspa-test ./node_modules/mocha/bin/mocha"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.2",
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.8"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "morgan": "^1.7.0",
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.0.0"
+  }
 }

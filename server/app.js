@@ -9,6 +9,7 @@ module.exports = app;
 //body parser middle ware
 
 app.use(bodyParser.json());
+//we need this?
 app.use(bodyParser.urlencoded({ extended: true}));
 
 //static pages
@@ -24,13 +25,15 @@ app.use('/api', require('./routes/api.js'));
 //homepage
 
 var indexPath = path.join(__dirname, '../browser/index.html');
-app.get('/*', function(req,res,next) {
+//no need for wild card.. not now at least
+app.get('/', function(req,res,next) {
   // this is test
   res.sendFile(indexPath);
 });
 
 //start server
 
+//very nice. put it in server file...
 var server = require('http').createServer(app);
 var port = process.env.PORT || 3100;
 

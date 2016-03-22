@@ -5,7 +5,7 @@ var Promise = require('bluebird');
 var entry =  {
   name: "Anthony",
   priority: 1
-}
+};
 
 module.exports = function() {
   return db.connect()
@@ -18,7 +18,7 @@ module.exports = function() {
     .then(function(entry) {
       console.log(entry);
       console.log('seed done');
-    })
+    });
 };
 
 

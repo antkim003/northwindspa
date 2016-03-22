@@ -8,11 +8,12 @@ router.route('/posts')
     Entry.find({})
       .then(function(entries) {
         entries.sort(function(a,b) {
-          return a.priority - b.priority
+          return a.priority - b.priority;//or Entry.find().sort('priority')
         });
-        res.json(entries);
+        res.send(entries);
       })
       .catch(function(err) {
+        //how about setting the status code?
         res.json("there was an error", err);
       });
   })
@@ -22,9 +23,10 @@ router.route('/posts')
       priority: req.body.priority
     })
     .then(function(entry) {
-      res.json(entry);
+      res.send(entry);
     })
     .catch(function(err) {
+      //send something back or else we hang!!
       console.error('there was an error with the post call', err);
     });
   })
@@ -35,13 +37,15 @@ router.route('/posts')
         return entry.remove({});
       })
       .then(function(entry) {
-        res.json(entry);
+        res.send(entry);
       })
       .catch(function(err){
+        //don't hang!!
         console.error('there was an error with delete call', err);
-      })
+      });
   })
   .put(function(req,res,next) {
+    //interesting.. I think I would just update one item at a time in my route-- keeps my routes restful
     Promise.join(Entry.update({_id: req.body[0]._id}, {
       priority: req.body[0].priority
     }), Entry.update({_id: req.body[1]._id}, {
@@ -58,11 +62,12 @@ router.route('/posts')
       })
       .then(function(entries) {
         entries.sort(function(a,b) {
-          return a.priority - b.priority
+          return a.priority - b.priority//again you can have mongoose sort
         });
         res.json(entries);
       })
       .catch(function(err) {
+        //dont' hang.. res.status(500).send(err)?
         console.log('there was an error: ', err);
       })
   });

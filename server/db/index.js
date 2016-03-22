@@ -25,6 +25,7 @@ function disconnect(){
   });
 }
 
+//why not pull in models here as well?
 module.exports = {
   connect: connect,
   disconnect: disconnect

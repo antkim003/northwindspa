@@ -74,7 +74,7 @@ app.controller('postsController', function($http, $scope) {
   $scope.remove = function(index) {
     $http.delete('/api/posts', {params: {id: $scope.posts[index]._id}})
       .then(function(response) {
-        
+        $scope.posts.splice(index,1);
       })
       .catch(function(err) {
         console.error('there was an error: ', err);
